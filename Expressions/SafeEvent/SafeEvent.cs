@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using CoolSharp.Expressions;
 
-namespace CoolSharp.Generics
+namespace CoolSharp.Generics.SafeEvent
 {
     public class SafeEvent<T> where T : Delegate
     {
@@ -25,11 +26,14 @@ namespace CoolSharp.Generics
         public SafeEvent<T> Remove(T action)
         {
             int index = actions.IndexOf(action);
-            if (index <= currentInvokeIndex)
-            {
-                currentInvokeIndex--;
+            if (index >= 0)
+		    {
+                if (index <= currentInvokeIndex)
+                {
+                    currentInvokeIndex--;
+                }
+                actions.RemoveAt(index);
             }
-            actions.RemoveAt(index);
             return this;
         }
 
