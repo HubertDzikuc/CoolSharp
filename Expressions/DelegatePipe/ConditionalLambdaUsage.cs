@@ -1,23 +1,23 @@
 using System;
 
-namespace CoolSharp.Expressions.DelegateWrapper
+namespace CoolSharp.Expressions.LambdaWrapper
 {
-    public class ConditionalDelegateUsage
+    public class ConditionalLambdaUsage
     {
-        private ConditionalDelegate<Action<string>> action;
+        private ConditionalLambda<Action<string>> action;
 
         private bool condition = true;
 
-        public ConditionalDelegateUsage()
+        public ConditionalLambdaUsage()
         {
-            action = new ConditionalDelegate<Action<string>>(ExampleMethod, () => condition); 
-            
+            action = new ConditionalLambda<Action<string>>(ExampleMethod, () => condition);
+
             action.Invoke("This Should Run");
 
             condition = false;
 
             action.Invoke("This Shouldn't Run");
-        } 
+        }
 
         private void ExampleMethod(string msg)
         {

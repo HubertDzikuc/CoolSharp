@@ -1,12 +1,12 @@
 using System;
 
-namespace CoolSharp.Expressions.DelegateWrapper
+namespace CoolSharp.Expressions.LambdaWrapper
 {
-    public class ConditionalDelegate<T> : DelegateWrapper<T> where T : Delegate
+    public class ConditionalLambda<T> : LambdaWrapper<T> where T : Delegate
     {
         private readonly Func<bool> condition;
 
-        public ConditionalDelegate(T action, Func<bool> condition) : base(action)
+        public ConditionalLambda(T action, Func<bool> condition) : base(action)
         {
             this.condition = condition;
         }

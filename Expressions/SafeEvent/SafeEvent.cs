@@ -14,7 +14,7 @@ namespace CoolSharp.Generics.SafeEvent
 
         public SafeEvent()
         {
-            Invoke = ExpressionsUtils.GenerateDelegateFromInvoker<T>(this, InvokeAction);
+            Invoke = ExpressionsUtils.GenerateLambdaFromInvoker<T>(this, InvokeAction);
         }
 
         public SafeEvent<T> Add(T action)

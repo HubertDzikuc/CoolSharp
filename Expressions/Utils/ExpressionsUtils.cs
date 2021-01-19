@@ -7,7 +7,7 @@ namespace CoolSharp.Expressions
 {
     public static class ExpressionsUtils
     {
-        private static T GenerateDelegateFromInvoker<T>(object obj, Action<object[]> invoker) where T : Delegate
+        private static T GenerateLambdaFromInvoker<T>(object obj, Action<object[]> invoker) where T : Lambda
         {
             var parameters = typeof(T).GetMethod("Invoke").GetParameters().Select(p => Expression.Parameter(p.ParameterType)).ToList();
 

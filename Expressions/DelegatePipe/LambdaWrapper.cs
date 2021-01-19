@@ -1,17 +1,17 @@
 using System;
 
-namespace CoolSharp.Expressions.DelegateWrapper
+namespace CoolSharp.Expressions.LambdaWrapper
 {
-    public abstract class DelegateWrapper<T> where T : Delegate
+    public abstract class LambdaWrapper<T> where T : Delegate
     {
         public readonly T Invoke;
         private readonly T action;
 
-        protected DelegateWrapper(T action)
+        protected LambdaWrapper(T action)
         {
             this.action = action;
 
-            Invoke = ExpressionsUtils.GenerateDelegateFromInvoker<T>(this, LocalInvoke);
+            Invoke = ExpressionsUtils.GenerateLambdaFromInvoker<T>(this, LocalInvoke);
         }
 
         protected abstract LocalInvoke(params object[] arguments);
