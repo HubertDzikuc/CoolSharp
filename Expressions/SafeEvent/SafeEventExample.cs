@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace CoolSharp.Generics.SafeEvent
 {
-    public class SafeEventUsage
+    public class SafeEventExample
     {
-        public SafeEventUsage()
-        {
-            var safeEvent = new SafeEvent<Action<string>>();
+        SafeEvent<Action<string>> safeEvent = new SafeEvent<Action<string>>();
 
+        public SafeEventExample()
+        {
        	    safeEvent += TestMethod;
 	        safeEvent += TestMethod2;
 	        safeEvent.Invoke("Test");

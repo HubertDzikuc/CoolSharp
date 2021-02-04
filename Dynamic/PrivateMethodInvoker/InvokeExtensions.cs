@@ -1,13 +1,13 @@
 using System.Dynamic;
 using System;
 
-namespace CoolSharp.Dynamic.PrivateMethodInvoker
+namespace CoolSharp.Dynamic.PrivateAccess
 {
-    public static class InvokeExtensions
+    public static class PrivateExtensions
     {
-        public static dynamic InvokeMethod<T>(this T @object) where T : class
+        public static dynamic PrivateAccess<T>(this T @object) where T : class
         {
-            return new PrivateMethodInvoker(@object) as dynamic;
+            return new PrivateAccessor<T>(@object) as dynamic;
         }
     }
 }
